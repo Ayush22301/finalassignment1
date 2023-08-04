@@ -24,10 +24,32 @@ class UsersController < ApplicationController
     end
 
     def my_posts
-        articles = current_user.articles
-        # Add logic to get the stats (number of likes, comments, views) for each article
-        # and format the JSON response accordingly
-        render json: articles, status: :ok
+      author = current_user.author
+      article_ids = author&.article_ids || [] 
+      articles = []
+      article_ids.each do |article_id|
+        article = Article.find_by(id: article_id)
+        # articles << article if article
+        articles.push(article)
+      end
+      # articles = Article.all
+      response = articles.map do |article|
+        {
+          id: article.id,
+          title: article.title,
+          author: article.author,
+          description: article.description,
+          genre: article.genre,
+          image_url: article.image.attached? ? url_for(article.image) : nil,
+          created_at: article.created_at,
+          updated_at: article.updated_at,
+          no_of_likes: article.no_of_likes,
+          no_of_comments: article.no_of_comments,
+          likes: article.likes,
+          comments: article.comments
+        }
+    end
+      render json: response, status: :ok
     end
 
 

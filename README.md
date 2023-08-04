@@ -18,10 +18,10 @@ Search post, author, or topic   -----
  Level 2 
 User Registration -----
 User Login  -----
-Profile
-My Posts (with stats mentioned below)
-Number of likes
-Number of comments
-Views
+Profile   ------
+My Posts (with stats mentioned below)  
+    Number of likes  ----
+    Number of comments  ----
+    Views
 Follow other authors
 Other Author's profile view
