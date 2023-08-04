@@ -19,9 +19,9 @@ Search post, author, or topic   -----
 User Registration -----
 User Login  -----
 Profile   ------
-My Posts (with stats mentioned below)  
+My Posts (with stats mentioned below)  -----
     Number of likes  ----
     Number of comments  ----
-    Views
+    Views   -------
 Follow other authors
 Other Author's profile view

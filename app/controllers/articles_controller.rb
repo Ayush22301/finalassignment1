@@ -307,6 +307,36 @@ class ArticlesController < ApplicationController
       render json: response
     end
 
+    def show
+      article = Article.find_by(id: params[:id])
+  
+      if article
+        # Update the "views" count by 1
+        article.increment!(:views)
+
+        response = {
+          id: article.id,
+          title: article.title,
+          author: article.author,
+          description: article.description,
+          genre: article.genre,
+          image_url: article.image.attached? ? url_for(article.image) : nil,
+          created_at: article.created_at,
+          updated_at: article.updated_at,
+          no_of_likes: article.no_of_likes,
+          no_of_comments: article.no_of_comments,
+          likes: article.likes,
+          comments: article.comments,
+          views: article.views
+        }
+  
+        render json: response, status: :ok
+      else
+        render json: { error: 'Article not found' }, status: :not_found
+      end
+
+    end
+
     private
 
     def article_params

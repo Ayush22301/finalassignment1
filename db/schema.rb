@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_210947) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_04_062718) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_210947) do
     t.integer "no_of_comments"
     t.json "likes", default: [], null: false
     t.json "comments", default: [], null: false
+    t.integer "views", default: 0
     t.index ["author_id"], name: "index_articles_on_author_id"
   end
 

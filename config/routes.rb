@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get "articles/all", to: "articles#all"
 
+  put "articles/show", to: "articles#show"
+
 
   ###user 
 
