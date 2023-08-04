@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     before_action :authenticate_user, only: [:profile, :my_posts]
 
     def create
-        author = Author.create(name: user_params[:name]) # Create a new author based on the user's name
+        author = Author.find_or_create_by(name: user_params[:name]) # Create a new author based on the user's name
         @user = User.new(
           name: user_params[:name],
           email: user_params[:email],
